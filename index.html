@@ -4,11 +4,255 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bladepro - Alat Barbershop Profesional</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- RESET & GLOBAL STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --bg-dark: #0f1115;
+            --card-bg: #181b20;
+            --yellow-main: #ffd700;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--yellow-main) !important;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-size: 16px;
+        }
+
+        /* MEMBUAT SEMUA ELEMEN TEKS BERWARNA KUNING & SERAGAM */
+        h1, h2, h3, h4, h5, h6, p, a, li, span, label, input, textarea {
+            color: var(--yellow-main) !important;
+        }
+
+        /* --- NAVBAR --- */
+        header {
+            background-color: #08090b;
+            border-bottom: 2px solid var(--yellow-main);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo a {
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-decoration: none;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 6px 12px;
+            border-radius: 4px;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: var(--yellow-main);
+            color: #000000 !important;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle .bar {
+            width: 25px;
+            height: 3px;
+            background-color: var(--yellow-main);
+            margin: 4px 0;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(15, 17, 21, 0.85), rgba(15, 17, 21, 0.85)), 
+                        url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1200') center/cover no-repeat;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-bottom: 25px;
+        }
+
+        /* --- BUTTON --- */
+        .btn {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--yellow-main) !important;
+            border: 2px solid var(--yellow-main);
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            background-color: var(--yellow-main);
+            color: #000000 !important;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        }
+
+        /* --- CONTENT --- */
+        main {
+            flex: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .page-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--yellow-main);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-card {
+            background-color: var(--card-bg);
+            padding: 30px 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--yellow-main);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #08090b;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            text-align: center;
+            padding: 25px 0;
+            margin-top: auto;
+            font-size: 0.9rem;
+        }
+
+        /* --- MOBILE RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 65px;
+                left: 0;
+                background-color: #08090b;
+                padding: 20px 0;
+                text-align: center;
+                border-bottom: 2px solid var(--yellow-main);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Header / Navbar -->
     <header>
         <nav class="navbar">
             <div class="logo"><a href="index.html">BLADEPRO</a></div>
@@ -26,14 +270,12 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <h1>Peralatan Barbershop Standar Profesional</h1>
         <p>Solusi perkakas cukur presisi dan tahan lama untuk barbershop Anda.</p>
         <a href="produk.html" class="btn">Lihat Produk</a>
     </section>
 
-    <!-- Content Utama -->
     <main class="container">
         <h2 class="page-title">Mengapa Memilih Bladepro?</h2>
         <div class="features">
@@ -47,16 +289,26 @@
             </div>
             <div class="feature-card">
                 <h3>Garansi Resmi</h3>
-                <p>Setiap produk melalu proses QC ketat dan memiliki jaminan garansi resmi.</p>
+                <p>Setiap produk melalui proses QC ketat dan memiliki jaminan garansi resmi.</p>
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 Bladepro. All Rights Reserved.</p>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (menuToggle) {
+                menuToggle.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
