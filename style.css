@@ -1,0 +1,354 @@
+/* Import Font Google Modern */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
+
+/* --- RESET & GLOBAL VARIABLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --bg-dark: #0f1115;        /* Latar gelap keren khas barbershop */
+    --card-bg: #181b20;        /* Warna latar kartu/komponen */
+    --yellow-main: #ffd700;    /* Warna Kuning Emas Segar & Cerah */
+    --yellow-hover: #e6c200;   /* Warna Kuning saat di-hover */
+}
+
+body {
+    background-color: var(--bg-dark);
+    /* Mengubah SEMUA warna teks di seluruh website menjadi KUNING */
+    color: var(--yellow-main) !important;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: 16px; /* Ukuran font dasar standar & seragam */
+}
+
+/* Memastikan SEMUA elemen teks (p, h1, h2, h3, a, li, span, dll) berwarna KUNING */
+h1, h2, h3, h4, h5, h6, p, a, li, span, label, input, textarea {
+    color: var(--yellow-main) !important;
+}
+
+/* --- NAVBAR --- */
+header {
+    background-color: #08090b;
+    border-bottom: 2px solid var(--yellow-main);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo a {
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background-color: var(--yellow-main);
+    color: #000000 !important; /* Teks berubah jadi hitam saat aktif/hover agar kontras */
+}
+
+/* Menu Toggle untuk Mobile (HP) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--yellow-main);
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+/* --- HERO SECTION (BERANDA) --- */
+.hero {
+    background: linear-gradient(rgba(15, 17, 21, 0.85), rgba(15, 17, 21, 0.85)), 
+                url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1200') center/cover no-repeat;
+    height: 65vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin-bottom: 25px;
+}
+
+/* --- TOMBOL (BUTTON) --- */
+.btn {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--yellow-main) !important;
+    border: 2px solid var(--yellow-main);
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    background-color: var(--yellow-main);
+    color: #000000 !important;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+/* --- MAIN CONTENT & CONTAINER --- */
+main {
+    flex: 1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.page-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--yellow-main);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* --- FEATURES & CARDS --- */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.feature-card {
+    background-color: var(--card-bg);
+    padding: 30px 20px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--yellow-main);
+}
+
+.feature-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+/* --- ABOUT PAGE --- */
+.about-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+    font-size: 1rem;
+}
+
+.about-img {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-img img {
+    width: 100%;
+    border-radius: 12px;
+    border: 2px solid var(--yellow-main);
+}
+
+/* --- PRODUK PAGE --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--yellow-main);
+    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.15);
+}
+
+.product-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.product-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 15px 0;
+}
+
+/* --- KONTAK PAGE --- */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--card-bg);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 8px;
+    outline: none;
+    font-size: 0.95rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--yellow-main);
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: #08090b;
+    border-top: 1px solid rgba(255, 215, 0, 0.2);
+    text-align: center;
+    padding: 25px 0;
+    margin-top: auto;
+    font-size: 0.9rem;
+}
+
+/* --- RESPONSIVE MOBILE (HP) --- */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        background-color: #08090b;
+        padding: 20px 0;
+        text-align: center;
+        border-bottom: 2px solid var(--yellow-main);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+}
